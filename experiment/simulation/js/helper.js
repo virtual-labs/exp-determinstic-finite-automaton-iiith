@@ -38,14 +38,17 @@ function displayCanvas(canvas, dfa, curr){
   // Display nodes in DFA
   nodes.forEach(function(elem){
     color = "black"
+    stroke_width = "1px"
     if(elem["type"] == "start"){
       color = "blue"
+      stroke_width = "3px"
     }else if(elem["type"] == "accept"){
       color = "green"
+      stroke_width = "3px"
     }
-    fillColor = "none"
+    fillColor = "#ffe4c4"
     if(curr == elem["text"]){
-      fillColor = "grey"
+      fillColor = "#adff2f"
     }
     circleElem = newElementNS('circle', [
       ["id", elem["text"]+"_circle"],
@@ -53,7 +56,8 @@ function displayCanvas(canvas, dfa, curr){
       ["cy", elem["y"]],
       ["r", radius],
       ["stroke", color],
-      ["fill", fillColor]
+      ["fill", fillColor],
+      ["stroke-width", stroke_width]
     ]);
 
     textElem = newElementNS('text', [
