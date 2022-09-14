@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Add CSS at the head of HTML file -->
     <link rel="stylesheet" href="./css/main.css">
 </head>
-<body>
-		<!-- Your code goes here-->
+<body style="padding:100px;">
+  <div id="header" class="">
+    <div id="input_container" class="">
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+    </div>
+    <div class="">
+      <button id="change_dfa" type="button" name="button">change DFA</button>
+      <button id="change_input" type="button" name="button">change input</button>
+    </div>
+  </div>
+  <div id="container">
+    <div class="" style="display:flex;flex-direction:column;align-items:center;">
+      <svg id="canvas1" width='500' height='200' xmlns="http://www.w3.org/2000/svg">
+      </svg>
+    </div>
+    <div id="footer" class="">
+      <button id="next" type="button" name="button">Next</button>
+    </div>
+  </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js" charset="utf-8"></script>
+    <script src="./js/helper.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 </html>
