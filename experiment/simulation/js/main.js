@@ -26,7 +26,7 @@ function refreshCanvas(){
     curr = dfa[dfaIndex]["input"][inputIndex]["states"][inputPointer];
     console.log("after", inputPointer, curr);
   }
-  res = displayCanvas(canvas, dfa[dfaIndex], curr);
+  res = displayCanvas(canvas, dfa[dfaIndex], inputPointer, curr);
 
   nodes = res[0]
   edges = res[1]
@@ -42,8 +42,16 @@ function resetInput(){
 function refreshInput(){
   inputContainer = document.getElementById("input_container");
   clearElem(inputContainer);
-  text = document.createTextNode(dfa[dfaIndex]["input"][inputIndex]["string"]);
-  inputContainer.appendChild(text);
+  for(let i=0;i<dfa[dfaIndex]["input"][inputIndex]["string"].length;++i){
+    textColor = "black";
+    if(inputPointer == i){
+      textColor = "red";
+    }
+    span = newElement("font", [["id", "text_"+i], ["color", textColor]]);
+    text = document.createTextNode(dfa[dfaIndex]["input"][inputIndex]["string"][i]);
+    span.appendChild(text);
+    inputContainer.appendChild(span);
+  }
 }
 
 window.addEventListener('load', function(e){
@@ -81,6 +89,7 @@ window.addEventListener('load', function(e){
   next.addEventListener("click", function(e){
     if(inputPointer != dfa[dfaIndex]["input"][inputIndex]["string"].length){
       inputPointer = inputPointer + 1;
+      refreshInput();
       refreshCanvas();
     }
   });

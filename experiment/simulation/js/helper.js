@@ -11,6 +11,14 @@ function newElementNS(tag, attr){
  return elem;
 }
 
+function newElement(tag, attr){
+ elem = document.createElement(tag);
+ attr.forEach(function(item){
+   elem.setAttribute(item[0], item[1]);
+ });
+ return elem;
+}
+
 function clearElem(elem){
   while(elem.firstChild){
     elem.removeChild(elem.lastChild);
@@ -18,7 +26,7 @@ function clearElem(elem){
 }
 
 // Global variables width, height and radius need to be set before invoking this function
-function displayCanvas(canvas, dfa, curr){
+function displayCanvas(canvas, dfa, inputPointer, currNode){
   sine45 = 0.707;
 
   nodes = [];
@@ -47,7 +55,7 @@ function displayCanvas(canvas, dfa, curr){
       stroke_width = "3px"
     }
     fillColor = "#ffe4c4"
-    if(curr == elem["text"]){
+    if(currNode == elem["text"]){
       fillColor = "#adff2f"
     }
     circleElem = newElementNS('circle', [
@@ -160,11 +168,12 @@ function displayCanvas(canvas, dfa, curr){
                     elem["end"]["x"]+" "+elem["end"]["y"];
     }
 
+    edgeColor = "black"
     line = newElementNS('path', [
       ["id", baseId],
       ["d", linepoints],
       ["fill", "none"],
-      ["stroke", "black"]
+      ["stroke", edgeColor]
     ]);
 
     mid_x = elem["mid"]["x"];
