@@ -1,4 +1,6 @@
 /* You CSS goes in here */
+.v-button { margin-bottom: 5px; }
+
 .window { z-index:20; }
 .jtk-connector { z-index:4; }
 .jtk-endpoint { z-index:5; }
