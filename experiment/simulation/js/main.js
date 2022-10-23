@@ -94,4 +94,14 @@ window.addEventListener('load', function(e){
     }
   });
 
+  // Event listener for prev
+  prev = document.getElementById("prev");
+  prev.addEventListener("click", function(e){
+    if(inputPointer != -1){
+      inputPointer = inputPointer - 1;
+      refreshInput();
+      refreshCanvas();
+    }
+  });
+
 });
