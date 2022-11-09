@@ -57,21 +57,27 @@ Automaton reads 1 and stays in $q_0$.
 ![Automaton reads 1 and stays in $q_0$](images/Step2.png)
 
 Automaton reads 0 and moves to $q_1$
+
 ![Automaton reads 0 and moves to $q_1$](images/Step3.png)
 
 Automaton reads 1 and moves to $q_0$
+
 ![Automaton reads 1 and moves to $q_0$](images/Step4.png)
 
 Automaton reads 0 and moves to $q_1$
+
 ![Automaton reads 0 and moves to $q_1$](images/Step5.png)
 
 Automaton reads 0 and moves to $q_2$
+
 ![Automaton reads 0 and moves to $q_2$](images/Step6.png)
 
 Automaton reads 0 and stays in $q_2$
+
 ![Automaton reads 0 and stays in $q_2$](images/Step7.png)
 
 Automaton reads 1 and moves to $q_3$
+
 ![Automaton reads 1 and moves to $q_3$](images/Step8.png)
 
 
