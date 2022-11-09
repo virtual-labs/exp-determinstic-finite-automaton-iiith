@@ -49,15 +49,22 @@ Afore mentioned rudimentary vending machine can be formalized as follows.
 <!-- ![Finite State Automata representing the vending machine](images/FormalVendingMachine.png) --->
 
 ### Run of a Finite State Automaton
-
+Given any string in $\Sigma^*$, we can simulate the finite state automaton using the predetermined transition function by reading the string bit by bit.
 
 ![Automaton before it reads the given string](images/Step1.png)
+
 ![Automaton reads 1 and stays in $q_0$](images/Step2.png)
+
 ![Automaton reads 0 and moves to $q_1$](images/Step3.png)
+
 ![Automaton reads 1 and moves to $q_0$](images/Step4.png)
+
 ![Automaton reads 0 and moves to $q_1$](images/Step5.png)
+
 ![Automaton reads 0 and moves to $q_2$](images/Step6.png)
+
 ![Automaton reads 0 and stays in $q_2$](images/Step7.png)
+
 ![Automaton reads 1 and moves to $q_3$](images/Step8.png)
 
 
