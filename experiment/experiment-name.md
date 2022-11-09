@@ -1,1 +1,2 @@
-## Experiment name
+## Deterministic Finite Automaton
+
