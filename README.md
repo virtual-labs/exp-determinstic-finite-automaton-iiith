@@ -1,24 +1,24 @@
 ## Introduction
 
 
-<b>Discipline | <b>Fill your discipline name here
+<b>Discipline | <b> Computer Science
 :--|:--|
-<b> Lab | <b> Fill your lab name here
+<b> Lab | <b> Virtual Lab in Automata and Formal Languages
 <b> Experiment|     <b> Fill your experiment name and number here
 
 ### About the Experiment 
 
 Fill a brief description of this experiment here
 
-<b>Name of Developer | <b> Fill the name of experiment owner here 
+<b>Name of Developer | <b> Nithish Raja, Suryajith Chillara 
 :--|:--|
-<b> Institute | <b>  
-<b> Email id|     <b>  
-<b> Department |  
+<b> Institute | <b> International Institute of Information Technology, Hyderabad
+<b> Email id|     <b> {nithish.raja@research, suryajith.chillara@}.iiit.ac.in
+<b> Department |  <b> Center for Security, Theory and Algorithm Research (CSTAR)
 
 ### Contributors List
 
 SrNo | Name | Faculty or Student | Department| Institute | Email id
 :--|:--|:--|:--|:--|:--|
-1 | . | . | . | . | .
-2 | . | . | . | . | .
+    1 | Suryajith Chillara | Faculty | CSTAR | IIIT Hyderabad | suryajith.chillara@iiit.ac.in
+2 | Nithish Raja | Student | CSTAR | IIIT Hyderabad | nithish.raja@research.iiit.ac.in
