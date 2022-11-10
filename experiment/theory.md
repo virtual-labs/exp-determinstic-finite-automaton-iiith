@@ -1,7 +1,3 @@
-<script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
-
 ## Introduction
 
 Consider the following example of a very rudimentary vending machine which only takes in 1 and 2 rupee coins as inputs, and all items are identical are priced at 5 rupees each. The vending machine pushes all the coins out if the input coins add up to 6 rupees without first adding up to 5 rupees, or any coin that is input after reaching 5 rupees.
@@ -53,11 +49,12 @@ Afore mentioned rudimentary vending machine can be formalized as follows.
 <!-- ![Finite State Automata representing the vending machine](images/FormalVendingMachine.png) --->
 
 ### Run of a Finite State Automaton
-Given any string in $\Sigma^*$, we can simulate the finite state automaton using the predetermined transition function by reading the string bit by bit.
+Given any string in $\Sigma^*$, we can simulate the finite state automaton using the predetermined transition function by reading the string bit by bit. Note that the start state is $q_0$, and the accept state is $q_3$.
 
 ![Automaton before it reads the given string](images/Step1.png)
 
 Automaton reads 1 and stays in $q_0$.
+
 ![Automaton reads 1 and stays in $q_0$](images/Step2.png)
 
 Automaton reads 0 and moves to $q_1$
@@ -85,6 +82,19 @@ Automaton reads 1 and moves to $q_3$
 ![Automaton reads 1 and moves to $q_3$](images/Step8.png)
 
 Automaton accepts the string upon reaching $q_3$.
+
+
+### Language acceptance of a finite state automaton
+
+Given a machine $M = (Q, \Sigma, \delta, q_0, F)$,
+- A string $x$ is *accepted* by machine $M$ if a run of machine $M$ on $x$ ends in an accepting state.
+- Language of $M$, $L(M) = \{w\in\Sigma^{*}\mid \text{$w$ is accepted by $M$}\}$.
+- For a set $A$ if $L(M) = A$, then $M$ *recognizes* $A$.
+
+*Things to ponder on:* Given a finite state automaton $M$, can it happen that it accepts no strings?
+
+![Automaton that recognizes strings that contain 001](DFAfor001.png)
+**Regular languages:** A language $A$ is called a *regular language* if some Finite State Machine *recognizes* it.
 
 
 
