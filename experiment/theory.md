@@ -94,6 +94,7 @@ Given a machine $M = (Q, \Sigma, \delta, q_0, F)$,
 *Things to ponder on:* Given a finite state automaton $M$, can it happen that it accepts no strings?
 
 ![Automaton that recognizes strings that contain 001](DFAfor001.png)
+
 **Regular languages:** A language $A$ is called a *regular language* if some Finite State Machine *recognizes* it.
 
 
