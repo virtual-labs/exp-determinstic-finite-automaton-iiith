@@ -1,10 +1,10 @@
 ## Introduction
 
 
-<b>Discipline | <b> Computer Science
+<b>Discipline | <b> Computer Science and Engineering
 :--|:--|
 <b> Lab | <b> Virtual Lab in Automata and Formal Languages
-<b> Experiment|     <b> Fill your experiment name and number here
+<b> Experiment|     <b> Language acceptance by DFAs
 
 ### About the Experiment 
 
@@ -20,5 +20,5 @@ Fill a brief description of this experiment here
 
 SrNo | Name | Faculty or Student | Department| Institute | Email id
 :--|:--|:--|:--|:--|:--|
-    1 | Suryajith Chillara | Faculty | CSTAR | IIIT Hyderabad | suryajith.chillara@iiit.ac.in
+1 | Suryajith Chillara | Faculty | CSTAR | IIIT Hyderabad | suryajith.chillara@iiit.ac.in
 2 | Nithish Raja | Student | CSTAR | IIIT Hyderabad | nithish.raja@research.iiit.ac.in
