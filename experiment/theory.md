@@ -20,7 +20,7 @@ This is in fact an example of what we call a deterministic finite state machines
 
 ### Formal definition
 
-A *Finite State Machine* (FSM) is a $5$-tuple $(Q, \Sigma, \delta, q_0, F)$ where
+A *Deterministic Finite State Machine/Automaton* (DFA) is a $5$-tuple $(Q, \Sigma, \delta, q_0, F)$ where
 - $Q$ is a finite set called *states*,
 - $\Sigma$ is a finite set called *alphabet*,
 - $\delta: Q\times \Sigma \rightarrow Q$ is the *transition function*,
@@ -46,7 +46,7 @@ Afore mentioned rudimentary vending machine can be formalized as follows.
 - $q_0$ is the start state
 - $F = \{q_5\}$
 
-<!-- ![Finite State Automata representing the vending machine](images/FormalVendingMachine.png) --->
+![Finite State Automata representing the vending machine](images/FormalVendingMachine.png)
 
 ### Run of a Finite State Automaton
 Given any string in $\Sigma^*$, we can simulate the finite state automaton using the predetermined transition function by reading the string bit by bit. Note that the start state is $q_0$, and the accept state is $q_3$.
@@ -93,7 +93,13 @@ Given a machine $M = (Q, \Sigma, \delta, q_0, F)$,
 
 *Things to ponder on:* Given a finite state automaton $M$, can it happen that it accepts no strings?
 
+#### Example 2
+
 ![Automaton that recognizes strings that contain 001](images/DFAfor001.png)
+
+The above automaton recognizes strings that contain 001.
+
+
 
 
 
