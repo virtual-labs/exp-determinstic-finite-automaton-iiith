@@ -1,2 +1,2 @@
-## Deterministic Finite Automaton
+## Language acceptance by Deterministic Finite Automata (DFAs)
 
