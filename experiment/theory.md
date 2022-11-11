@@ -86,12 +86,19 @@ Automaton accepts the string upon reaching $q_3$.
 
 ### Language acceptance of a finite state automaton
 
+A language is a set of strings over a given alphabet $\Sigma$.
+
 Given a machine $M = (Q, \Sigma, \delta, q_0, F)$,
 - A string $x$ is *accepted* by machine $M$ if a run of machine $M$ on $x$ ends in an accepting state.
 - Language of $M$, $L(M) = \{w\in\Sigma^{*}\mid \text{$w$ is accepted by $M$}\}$.
 - For a set $A$ if $L(M) = A$, then $M$ *recognizes* $A$.
 
-*Things to ponder on:* Given a finite state automaton $M$, can it happen that it accepts no strings?
+The above definition does not use the word *deterministic*, and as we shall see in the [next experiment](https://virtual-labs.github.io/exp-non-determinstic-finite-automaton-iiith), this also holds for non-deterministic finite state automata.
+
+
+*Things to ponder on:* 
+1. Given a finite state automaton $M$, can it happen that it accepts no strings?
+2. Given a set of strings over an alphabet $\Sigma$, is there a DFA that accepts it?
 
 #### Example 2
 
