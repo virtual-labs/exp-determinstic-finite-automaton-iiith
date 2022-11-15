@@ -8,13 +8,13 @@
 
 ### About the Experiment 
 
-Fill a brief description of this experiment here
+A deterministic finite automaton (DFA) is an abstraction of a memory-less machine. A DFA either accepts or rejects a string by running through a sequence of states that are determined by the sequence of symbols in the given string. A language of a DFA is the set of all strings that are accepted by it.
 
-<b>Name of Developer | <b> Nithish Raja, Suryajith Chillara 
+<b>Name of Developer | <b> Nithish Raja, Suryajith Chillara, Venkatesh Choppella 
 :--|:--|
 <b> Institute | <b> International Institute of Information Technology, Hyderabad
-<b> Email id|     <b> {nithish.raja@research, suryajith.chillara@}.iiit.ac.in
-<b> Department |  <b> Center for Security, Theory and Algorithm Research (CSTAR)
+<b> Email id|     <b> {nithish.raja@research, suryajith.chillara@, venkatesh.choppella@}.iiit.ac.in
+<b> Department |  <b> Center for Security, Theory and Algorithm Research (CSTAR), Software Engineering Research Center (SERC)
 
 ### Contributors List
 
