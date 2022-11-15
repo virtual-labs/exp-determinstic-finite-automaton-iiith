@@ -106,6 +106,12 @@ The above definition does not use the word *deterministic*, and as we shall see 
 
 The above automaton recognizes strings that contain 001.
 
+## Related topics
+1. [Language acceptance by Non-Deterministic Finite Automata](https://virtual-labs.github.io/exp-non-determinstic-finite-automaton-iiith/)
+2. [Converting a NFA to a DFA](https://virtual-labs.github.io/exp-nfa-to-dfa-iiith/)
+3. [Converting a Regular Expression to NFA](https://virtual-labs.github.io/exp-converting-regular-expression-iiith/)
+
+
 
 
 
