@@ -26,6 +26,14 @@ function refreshCanvas(){
     curr = dfa[dfaIndex]["input"][inputIndex]["states"][inputPointer];
     console.log("after", inputPointer, curr);
   }
+
+  DFADescriptionContainer = document.getElementById("DFA_description_container");
+  clearElem(DFADescriptionContainer);
+  span = newElement("font", [["id", "DFA_description"], ["color", textColor]]);
+  text = document.createTextNode(dfa[dfaIndex]["description"]);
+  span.appendChild(text);
+  DFADescriptionContainer.appendChild(text);
+
   res = displayCanvas(canvas, dfa[dfaIndex], inputPointer, curr);
 
   nodes = res[0]
