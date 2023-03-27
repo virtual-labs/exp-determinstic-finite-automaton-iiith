@@ -4,6 +4,7 @@
   */
 
 const dfa1 = {
+  "description": "Check if input begins with 01.",
   "vertices": [
     {"text": "A", "type": "start"},
     {"text": "B", "type": "none"},
@@ -34,6 +35,7 @@ const dfa1 = {
 }
 
 const dfa2 = {
+  "description": "Check if input has exactly three 1s.",
   "vertices": [
     {"text": "A", "type": "start"},
     {"text": "B", "type": "none"},
@@ -66,6 +68,7 @@ const dfa2 = {
 }
 
 const dfa3 = {
+  "description": "Check if input terminates with 0.",
   "vertices": [
     {"text": "A", "type": "start"},
     {"text": "B", "type": "accept"},
@@ -93,6 +96,7 @@ const dfa3 = {
 }
 
 const dfa4 = {
+  "description": "Does input have atleast one 0 and terminates with 1.",
   "vertices": [
     {"text": "A", "type": "start"},
     {"text": "B", "type": "none"},
@@ -123,6 +127,7 @@ const dfa4 = {
 }
 
 const dfa5 = {
+  "description": "Does first occurence of 0 is in a group of size atleast three.",
   "vertices": [
     {"text": "A", "type": "start"},
     {"text": "B", "type": "none"},
