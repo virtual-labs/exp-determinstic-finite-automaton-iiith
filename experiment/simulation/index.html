@@ -25,7 +25,7 @@
 
     <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start">
   		<div class="column is-2-desktop is-12-tablet is-12-mobile">
-  			<div class="v-datalist-container" style="height:100%">
+  			<div class="v-datalist-container">
   				<div class="v-datalist-title">DFA controls</div>
   				<div class="v-datalist-row" id="toolbar"
           style="display: flex;flex-direction: column;justify-content: space-evenly;align-items: center;">
@@ -34,6 +34,12 @@
             </button>
             <button id="change_input" type="button" name="button" class="v-button">
               change input
+            </button>
+            <button id="next" type="button" name="button" class="v-button">
+              Next step
+            </button>
+            <button id="prev" type="button" name="button" class="v-button">
+              Previous step
             </button>
   				</div>
   			</div>
@@ -47,27 +53,15 @@
               <svg id="canvas1" width='500' height='200' xmlns="http://www.w3.org/2000/svg">
               </svg>
             </div>
-            <div id="stack_container" style="overflow: auto;">
-              <ul id="stack_list">
-
-              </ul>
-            </div>
   				</div>
   			</div>
   		</div>
   		<div class="column is-3-desktop is-12-tablet is-12-mobile">
-  			<div class="v-datalist-container components-list">
-  				<div class="v-datalist-title">Input controls</div>
-  				<div class="v-datalist-row"
-          style="display: flex;flex-direction: column;justify-content: space-evenly;align-items: center;">
-            <button id="next" type="button" name="button" class="v-button">
-              Next
-            </button>
-            <button id="prev" type="button" name="button" class="v-button">
-              Previous
-            </button>
-  				</div>
-  			</div>
+        <div id="stack_container" style="overflow: auto;">
+          <ul id="stack_list">
+
+          </ul>
+        </div>
   		</div>
   	</div>
 
