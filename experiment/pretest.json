@@ -9,12 +9,12 @@
         "c": "transition function",
         "d": "reject states"
       },
-      // "explanations": {
-      //   "a": "Explanation 1  <a href='www.google.com'>here</a>",
-      //   "b": "Explanation 2",
-      //   "c": "Explanation 2",
-      //   "d": "Explanation 2"
-      // },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
       "correctAnswer": "d",
       "difficulty": "beginner"
     },
@@ -26,12 +26,12 @@
         "c": "state or input",
         "d": "state and input"
       },
-      // "explanations": {
-      //   "a": "Explanation 1  <a href='www.google.com'>here</a>",
-      //   "b": "Explanation 2",
-      //   "c": "Explanation 2",
-      //   "d": "Explanation 2"
-      // },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
       "correctAnswer": "d",
       "difficulty": "beginner"
     },
@@ -43,12 +43,12 @@
         "c": "state or input",
         "d": "state and input"
       },
-      // "explanations": {
-      //   "a": "Explanation 1  <a href='www.google.com'>here</a>",
-      //   "b": "Explanation 2",
-      //   "c": "Explanation 2",
-      //   "d": "Explanation 2"
-      // },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
@@ -59,12 +59,11 @@
         "b": "no",
         "c": "yes only for simple DFAs",
       },
-      // "explanations": {
-      //   "a": "Explanation 1  <a href='www.google.com'>here</a>",
-      //   "b": "Explanation 2",
-      //   "c": "Explanation 2",
-      //   "d": "Explanation 2"
-      // },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+      },
       "correctAnswer": "a",
       "difficulty": "beginner"
     }
