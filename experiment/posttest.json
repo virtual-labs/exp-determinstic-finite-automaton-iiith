@@ -8,12 +8,11 @@
         "b": "atmost one",
         "c": "exactly one"
       },
-      // "explanations": {
-      //   "a": "Explanation 1  <a href='www.google.com'>here</a>",
-      //   "b": "Explanation 2",
-      //   "c": "Explanation 2",
-      //   "d": "Explanation 2"
-      // },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+      },
       "correctAnswer": "c",
       "difficulty": "beginner"
     },
@@ -24,12 +23,11 @@
         "b": "atmost one",
         "c": "exactly one",
       },
-      // "explanations": {
-      //   "a": "Explanation 1  <a href='www.google.com'>here</a>",
-      //   "b": "Explanation 2",
-      //   "c": "Explanation 2",
-      //   "d": "Explanation 2"
-      // },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+      },
       "correctAnswer": "c",
       "difficulty": "beginner"
     },
@@ -41,12 +39,12 @@
         "c": "depends on transition function",
         "d": "depends on input"
       },
-      // "explanations": {
-      //   "a": "Explanation 1  <a href='www.google.com'>here</a>",
-      //   "b": "Explanation 2",
-      //   "c": "Explanation 2",
-      //   "d": "Explanation 2"
-      // },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
       "correctAnswer": "b",
       "difficulty": "beginner"
     },
@@ -57,12 +55,11 @@
         "b": "yes if alphabet set is binary",
         "c": "no",
       },
-      // "explanations": {
-      //   "a": "Explanation 1  <a href='www.google.com'>here</a>",
-      //   "b": "Explanation 2",
-      //   "c": "Explanation 2",
-      //   "d": "Explanation 2"
-      // },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+      },
       "correctAnswer": "a",
       "difficulty": "beginner"
     }
