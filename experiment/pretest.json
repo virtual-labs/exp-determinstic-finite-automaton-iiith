@@ -57,12 +57,12 @@
       "answers": {
         "a": "yes",
         "b": "no",
-        "c": "yes only for simple DFAs",
+        "c": "yes only for simple DFAs"
       },
       "explanations": {
         "a": "",
         "b": "",
-        "c": "",
+        "c": ""
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
