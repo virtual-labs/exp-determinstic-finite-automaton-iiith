@@ -2,37 +2,68 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "How many states can the automaton transition to upon reading input?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "atleast one",
+        "b": "atmost one",
+        "c": "exactly one"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "a",
+      // "explanations": {
+      //   "a": "Explanation 1  <a href='www.google.com'>here</a>",
+      //   "b": "Explanation 2",
+      //   "c": "Explanation 2",
+      //   "d": "Explanation 2"
+      // },
+      "correctAnswer": "c",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "How many transition functions does a DFA have?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "atleast one",
+        "b": "atmost one",
+        "c": "exactly one",
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
+      // "explanations": {
+      //   "a": "Explanation 1  <a href='www.google.com'>here</a>",
+      //   "b": "Explanation 2",
+      //   "c": "Explanation 2",
+      //   "d": "Explanation 2"
+      // },
       "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Can a DFA run infinitely?",
+      "answers": {
+        "a": "yes",
+        "b": "no",
+        "c": "depends on transition function",
+        "d": "depends on input"
+      },
+      // "explanations": {
+      //   "a": "Explanation 1  <a href='www.google.com'>here</a>",
+      //   "b": "Explanation 2",
+      //   "c": "Explanation 2",
+      //   "d": "Explanation 2"
+      // },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Can a DFA be constructed to count the parity of a given input symbol?",
+      "answers": {
+        "a": "yes in all cases",
+        "b": "yes if alphabet set is binary",
+        "c": "no",
+      },
+      // "explanations": {
+      //   "a": "Explanation 1  <a href='www.google.com'>here</a>",
+      //   "b": "Explanation 2",
+      //   "c": "Explanation 2",
+      //   "d": "Explanation 2"
+      // },
+      "correctAnswer": "a",
       "difficulty": "beginner"
     }
   ]
