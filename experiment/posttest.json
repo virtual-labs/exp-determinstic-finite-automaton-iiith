@@ -11,7 +11,7 @@
       "explanations": {
         "a": "",
         "b": "",
-        "c": "",
+        "c": ""
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
@@ -21,12 +21,12 @@
       "answers": {
         "a": "atleast one",
         "b": "atmost one",
-        "c": "exactly one",
+        "c": "exactly one"
       },
       "explanations": {
         "a": "",
         "b": "",
-        "c": "",
+        "c": ""
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
@@ -53,12 +53,12 @@
       "answers": {
         "a": "yes in all cases",
         "b": "yes if alphabet set is binary",
-        "c": "no",
+        "c": "no"
       },
       "explanations": {
         "a": "",
         "b": "",
-        "c": "",
+        "c": ""
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
