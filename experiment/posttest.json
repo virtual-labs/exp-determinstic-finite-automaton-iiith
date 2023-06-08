@@ -65,22 +65,6 @@
       // },
       "correctAnswer": "a",
       "difficulty": "beginner"
-    },
-    {
-      "question": "Can a DFA be described using a transition table?",
-      "answers": {
-        "a": "yes",
-        "b": "no",
-        "c": "yes only for simple DFAs",
-      },
-      // "explanations": {
-      //   "a": "Explanation 1  <a href='www.google.com'>here</a>",
-      //   "b": "Explanation 2",
-      //   "c": "Explanation 2",
-      //   "d": "Explanation 2"
-      // },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
     }
   ]
 }

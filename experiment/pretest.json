@@ -2,37 +2,70 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "Which among the following is not required to describe a DFA?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "input alphabet set",
+        "b": "set of states",
+        "c": "transition function",
+        "d": "reject states"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+      // "explanations": {
+      //   "a": "Explanation 1  <a href='www.google.com'>here</a>",
+      //   "b": "Explanation 2",
+      //   "c": "Explanation 2",
+      //   "d": "Explanation 2"
+      // },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the input to a transition function?",
+      "answers": {
+        "a": "only state",
+        "b": "only input",
+        "c": "state or input",
+        "d": "state and input"
       },
+      // "explanations": {
+      //   "a": "Explanation 1  <a href='www.google.com'>here</a>",
+      //   "b": "Explanation 2",
+      //   "c": "Explanation 2",
+      //   "d": "Explanation 2"
+      // },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the output of a transition function?",
+      "answers": {
+        "a": "only state",
+        "b": "only input",
+        "c": "state or input",
+        "d": "state and input"
+      },
+      // "explanations": {
+      //   "a": "Explanation 1  <a href='www.google.com'>here</a>",
+      //   "b": "Explanation 2",
+      //   "c": "Explanation 2",
+      //   "d": "Explanation 2"
+      // },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "Can a DFA be described using a transition table?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "yes",
+        "b": "no",
+        "c": "yes only for simple DFAs",
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "c",
+      // "explanations": {
+      //   "a": "Explanation 1  <a href='www.google.com'>here</a>",
+      //   "b": "Explanation 2",
+      //   "c": "Explanation 2",
+      //   "d": "Explanation 2"
+      // },
+      "correctAnswer": "a",
       "difficulty": "beginner"
     }
   ]
