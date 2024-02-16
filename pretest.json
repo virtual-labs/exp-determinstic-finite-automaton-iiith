@@ -1,0 +1,71 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "Which among the following is not required to describe a DFA?",
+      "answers": {
+        "a": "input alphabet set",
+        "b": "set of states",
+        "c": "transition function",
+        "d": "reject states"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the input to a transition function?",
+      "answers": {
+        "a": "only state",
+        "b": "only input",
+        "c": "state or input",
+        "d": "state and input"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What is the output of a transition function?",
+      "answers": {
+        "a": "only state",
+        "b": "only input",
+        "c": "state or input",
+        "d": "state and input"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Can a DFA be described using a transition table?",
+      "answers": {
+        "a": "yes",
+        "b": "no",
+        "c": "yes only for simple DFAs"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": ""
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    }
+  ]
+}

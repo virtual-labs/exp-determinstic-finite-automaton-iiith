@@ -1,0 +1,67 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "How many states can the automaton transition to upon reading input?",
+      "answers": {
+        "a": "atleast one",
+        "b": "atmost one",
+        "c": "exactly one"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": ""
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "How many transition functions does a DFA have?",
+      "answers": {
+        "a": "atleast one",
+        "b": "atmost one",
+        "c": "exactly one"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": ""
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Can a DFA run infinitely?",
+      "answers": {
+        "a": "yes",
+        "b": "no",
+        "c": "depends on transition function",
+        "d": "depends on input"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Can a DFA be constructed to count the parity of a given input symbol?",
+      "answers": {
+        "a": "yes in all cases",
+        "b": "yes if alphabet set is binary",
+        "c": "no"
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": ""
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    }
+  ]
+}
