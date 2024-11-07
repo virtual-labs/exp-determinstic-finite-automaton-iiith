@@ -3,63 +3,101 @@
  *
  */
 
-function newElementNS(tag, attr){
- elem = document.createElementNS('http://www.w3.org/2000/svg', tag);
- attr.forEach(function(item){
-   elem.setAttribute(item[0], item[1]);
- });
- return elem;
+function newElementNS(tag, attr) {
+  const elem = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  attr.forEach(function (item) {
+    elem.setAttribute(item[0], item[1]);
+  });
+  return elem;
 }
 
-function newElement(tag, attr){
- elem = document.createElement(tag);
- attr.forEach(function(item){
-   elem.setAttribute(item[0], item[1]);
- });
- return elem;
+function newElement(tag, attr) {
+  const elem = document.createElement(tag);
+  attr.forEach(function (item) {
+    elem.setAttribute(item[0], item[1]);
+  });
+  return elem;
 }
 
-function clearElem(elem){
-  while(elem.firstChild){
+function clearElem(elem) {
+  while (elem.firstChild) {
     elem.removeChild(elem.lastChild);
   }
 }
 
-// Global variables width, height and radius need to be set before invoking this function
-function displayCanvas(canvas, dfa, inputPointer, currNode){
-  sine45 = 0.707;
+// Global variables width, height, and radius need to be set before invoking this function
+function displayCanvas(canvas, dfa, inputPointer, currNode) {
+  const sine45 = 0.707;
 
-  nodes = [];
-  edges = [];
+  const nodes = [];
+  const edges = [];
+
+  // Define arrowhead marker for edges
+  const defs = newElementNS('defs', []);
+  const marker = newElementNS('marker', [
+    ['id', 'arrowhead'],
+    ['markerWidth', '10'],
+    ['markerHeight', '7'],
+    ['refX', '5'],
+    ['refY', '3.5'],
+    ['orient', 'auto'],
+    ['markerUnits', 'strokeWidth']
+  ]);
+
+  const arrow = newElementNS('path', [
+    ['d', 'M0,0 L10,3.5 L0,7 Z'],
+    ['fill', 'black']
+  ]);
+  marker.appendChild(arrow);
+  defs.appendChild(marker);
+  canvas.appendChild(defs);
 
   // Parse nodes in DFA
-  dfa["vertices"].forEach(function(elem, index){
-    newnode = {
+  dfa["vertices"].forEach(function (elem, index) {
+    const newnode = {
       "text": elem["text"],
       "type": elem["type"],
-      "x": width/5+index*width/5,
-      "y": height/2
+      "x": width / 5 + index * width / 5,
+      "y": height / 2
     };
     nodes.push(newnode);
   });
 
   // Display nodes in DFA
-  nodes.forEach(function(elem){
-    color = "black"
-    stroke_width = "1px"
-    if(elem["type"] == "start"){
-      color = "blue"
-      stroke_width = "3px"
-    }else if(elem["type"] == "accept"){
-      color = "green"
-      stroke_width = "3px"
+  nodes.forEach(function (elem) {
+    let color = "black";
+    let stroke_width = "1px";
+    let fillColor = "#ffffff";
+    if (elem["type"] == "start") {
+      fillColor = "#6699CC";
+      const startArrow = newElementNS('path', [
+        ["id", elem["text"] + "_start_arrow"],
+        ["d", "M " + (elem["x"] - radius - 40) + " " + elem["y"] + " L " + (elem["x"] - radius) + " " + elem["y"]],
+        ["fill", "none"],
+        ["stroke", color],
+        ["stroke-width", stroke_width],
+        ["marker-end", "url(#arrowhead)"]
+      ]);
+      canvas.appendChild(startArrow);
+    } else if (elem["type"] == "accept") {
+      fillColor = "#97d23d";
+      const outerCircle = newElementNS('circle', [
+        ["id", elem["text"] + "_outer_circle"],
+        ["cx", elem["x"]],
+        ["cy", elem["y"]],
+        ["r", radius + 5],
+        ["stroke", color],
+        ["fill", "none"],
+        ["stroke-width", stroke_width]
+      ]);
+      canvas.appendChild(outerCircle);
     }
-    fillColor = "#ffe4c4"
-    if(currNode == elem["text"]){
-      fillColor = "#adff2f"
+    if (currNode == elem["text"]) {
+      fillColor = "Gray";
     }
-    circleElem = newElementNS('circle', [
-      ["id", elem["text"]+"_circle"],
+
+    const circleElem = newElementNS('circle', [
+      ["id", elem["text"] + "_circle"],
       ["cx", elem["x"]],
       ["cy", elem["y"]],
       ["r", radius],
@@ -68,11 +106,13 @@ function displayCanvas(canvas, dfa, inputPointer, currNode){
       ["stroke-width", stroke_width]
     ]);
 
-    textElem = newElementNS('text', [
-      ["id", elem["text"]+"_circle_text"],
+    const textElem = newElementNS('text', [
+      ["id", elem["text"] + "_circle_text"],
       ['x', elem["x"]],
       ['y', elem["y"]],
-      ['fill', '#000']
+      ['fill', '#000'],
+      ['text-anchor', 'middle'],
+      ['dominant-baseline', 'middle']
     ]);
     textElem.textContent = elem["text"];
 
@@ -81,8 +121,8 @@ function displayCanvas(canvas, dfa, inputPointer, currNode){
   });
 
   // Parse edges in DFA
-  dfa["edges"].forEach(function(elem, index){
-    newEdge = {
+  dfa["edges"].forEach(function (elem) {
+    const newEdge = {
       "text": elem["text"],
       "type": elem["type"],
       "start": {
@@ -101,117 +141,96 @@ function displayCanvas(canvas, dfa, inputPointer, currNode){
       }
     };
 
-    nodes.forEach(function(nodeElem){
-      if(nodeElem["text"] == elem["start"]){
+    nodes.forEach(function (nodeElem) {
+      if (nodeElem["text"] == elem["start"]) {
         newEdge["start"]["x"] = nodeElem["x"];
         newEdge["start"]["y"] = nodeElem["y"];
       }
-      if(nodeElem["text"] == elem["end"]){
+      if (nodeElem["text"] == elem["end"]) {
         newEdge["end"]["x"] = nodeElem["x"];
         newEdge["end"]["y"] = nodeElem["y"];
       }
     });
 
-    if(elem["type"] == "forward"){
-      newEdge["start"]["x"] = newEdge["start"]["x"]+radius*sine45;
-      newEdge["end"]["x"] = newEdge["end"]["x"]-radius*sine45;
+    // Adjust edge positions to touch node boundaries
+    const offset = radius;
+    const isMultipleSymbols = Array.isArray(elem["text"]) && elem["text"].length > 1;
+    const additionalOffset = isMultipleSymbols ? elem["text"].length * 10 : 0; // Apply an additional offset based on symbol count
 
-      newEdge["start"]["y"] = newEdge["start"]["y"]-radius*sine45;
-      newEdge["end"]["y"] = newEdge["end"]["y"]-radius*sine45;
+    if (elem["type"] == "forward") {
+      newEdge["start"]["x"] += offset * sine45;
+      newEdge["start"]["y"] -= offset * sine45;
+      newEdge["end"]["x"] -= offset * sine45;
+      newEdge["end"]["y"] -= offset * sine45;
 
-      newEdge["mid"]["x"] = (newEdge["start"]["x"]+newEdge["end"]["x"])/2;
-      newEdge["mid"]["y"] = newEdge["start"]["y"]-radius;
-    }else if(elem["type"] == "backward"){
-      newEdge["start"]["x"] = newEdge["start"]["x"]-radius*sine45;
-      newEdge["end"]["x"] = newEdge["end"]["x"]+radius*sine45;
+      newEdge["mid"]["x"] = (newEdge["start"]["x"] + newEdge["end"]["x"]) / 2;
+      newEdge["mid"]["y"] = newEdge["start"]["y"] - (radius + additionalOffset);
+    } else if (elem["type"] == "backward") {
+      newEdge["start"]["x"] -= offset * sine45;
+      newEdge["start"]["y"] += offset * sine45;
+      newEdge["end"]["x"] += offset * sine45;
+      newEdge["end"]["y"] += offset * sine45;
 
-      newEdge["start"]["y"] = newEdge["start"]["y"]+radius*sine45;
-      newEdge["end"]["y"] = newEdge["end"]["y"]+radius*sine45;
+      newEdge["mid"]["x"] = (newEdge["start"]["x"] + newEdge["end"]["x"]) / 2;
+      newEdge["mid"]["y"] = newEdge["start"]["y"] + (radius + additionalOffset);
+    } else if (elem["type"] == "self") {
+      newEdge["start"]["x"] += offset * sine45;
+      newEdge["start"]["y"] += offset * sine45;
+      newEdge["end"]["x"] -= offset * sine45;
+      newEdge["end"]["y"] += offset * sine45;
 
-      newEdge["mid"]["x"] = (newEdge["start"]["x"]+newEdge["end"]["x"])/2;
-      newEdge["mid"]["y"] = newEdge["start"]["y"]+radius;
-    }else if(elem["type"] == "self"){
-      newEdge["start"]["x"] = newEdge["start"]["x"]+radius*sine45;
-      newEdge["start"]["y"] = newEdge["start"]["y"]+radius*sine45;
-
-      newEdge["end"]["x"] = newEdge["end"]["x"]-radius*sine45;
-      newEdge["end"]["y"] = newEdge["end"]["y"]+radius*sine45;
-
-      newEdge["mid"]["x"] = (newEdge["start"]["x"]+newEdge["end"]["x"])/2;
-      newEdge["mid"]["y"] = newEdge["start"]["y"]+3*radius;
+      newEdge["mid"]["x"] = (newEdge["start"]["x"] + newEdge["end"]["x"]) / 2;
+      newEdge["mid"]["y"] = newEdge["start"]["y"] + (3 * radius + additionalOffset);
     }
 
     edges.push(newEdge);
   });
 
   // Display edges in DFA
-  edges.forEach(function(elem){
-    baseId = elem["start"]["text"]+"_"+elem["end"]["text"];
+  edges.forEach(function (elem) {
+    const baseId = elem["start"]["text"] + "_" + elem["end"]["text"];
 
-    linepoints = "";
-    if(elem["type"] == "forward"){
-      linepoints = "M "+elem["start"]["x"]+" "+elem["start"]["y"]+
-                    " C "+elem["start"]["x"]+" "+elem["start"]["y"]+", "+
-                    elem["mid"]["x"]+" "+elem["mid"]["y"]+", "+
-                    elem["end"]["x"]+" "+elem["end"]["y"];
-      // linepoints = "M "+elem["start"]["x"]+" "+elem["start"]["y"]+
-      //               " L "+elem["end"]["x"]+" "+elem["end"]["y"];
-    }else if(elem["type"] == "backward"){
-      linepoints = "M "+elem["start"]["x"]+" "+elem["start"]["y"]+
-                    " C "+elem["start"]["x"]+" "+elem["start"]["y"]+", "+
-                    elem["mid"]["x"]+" "+elem["mid"]["y"]+", "+
-                    elem["end"]["x"]+" "+elem["end"]["y"];
-    }else if(elem["type"] == "self"){
-      linepoints = "M "+elem["start"]["x"]+" "+elem["start"]["y"]+
-                    " C "+elem["start"]["x"]+" "+elem["start"]["y"]+", "+
-                    elem["mid"]["x"]+" "+elem["mid"]["y"]+", "+
-                    elem["end"]["x"]+" "+elem["end"]["y"];
-    }
+    let linepoints = "M " + elem["start"]["x"] + " " + elem["start"]["y"] +
+      " C " + elem["start"]["x"] + " " + elem["start"]["y"] + "," +
+      elem["mid"]["x"] + " " + elem["mid"]["y"] + "," +
+      elem["end"]["x"] + " " + elem["end"]["y"];
 
-    edgeColor = "black"
-    line = newElementNS('path', [
+    const line = newElementNS('path', [
       ["id", baseId],
       ["d", linepoints],
       ["fill", "none"],
-      ["stroke", edgeColor]
+      ["stroke", "black"],
+      ["marker-end", "url(#arrowhead)"]
     ]);
 
-    mid_x = elem["mid"]["x"];
-    mid_y = elem["mid"]["y"];
+    const textElem = newElementNS('text', [
+      ["id", baseId + "_text"],
+      ["fill", "black"],
+      ["text-anchor", "middle"],
+      ["dominant-baseline", "middle"],
+      ["dy", "-0.5em"]
+    ]);
 
-    linemarkerpoints = "";
-    if(elem["type"] == "forward"){
-      mid_y = elem["start"]["y"]*0.25 + elem["mid"]["y"]*0.5 + elem["end"]["y"]*0.25;
-      linemarkerpoints = (mid_x)+","+(mid_y-5)+" "+(mid_x+5)+","+(mid_y)+" "+(mid_x)+","+(mid_y+5);
-    }else if(elem["type"] == "backward"){
-      mid_y = elem["start"]["y"]*0.25 + elem["mid"]["y"]*0.5 + elem["end"]["y"]*0.25;
-      linemarkerpoints = (mid_x)+","+(mid_y-5)+" "+(mid_x-5)+","+(mid_y)+" "+(mid_x)+","+(mid_y+5);
-    }else if(elem["type"] == "self"){
-      mid_y = elem["start"]["y"]*0.25 + elem["mid"]["y"]*0.5 + elem["end"]["y"]*0.25;
-      linemarkerpoints = (mid_x)+","+(mid_y-5)+" "+(mid_x-5)+","+(mid_y)+" "+(mid_x)+","+(mid_y+5);
+    // Add text to the path
+    const textPath = newElementNS('textPath', [
+      ["href", "#" + baseId],
+      ["startOffset", "50%"]
+    ]);
+    textPath.textContent = Array.isArray(elem["text"]) ? elem["text"].join(", ") : elem["text"];
+
+    // Calculate the slope
+    const deltaX = elem["end"]["x"] - elem["start"]["x"];
+    const deltaY = elem["end"]["y"] - elem["start"]["y"];
+
+    if (deltaY > 0) {
+      textPath.setAttribute("side", "right");
     }
 
-    linemarker = newElementNS('polygon', [
-      ["id", baseId+"_arrow"],
-      ["points", linemarkerpoints]
-    ]);
-
-    textline = newElementNS('text', [
-      ["id", baseId+"_text"]
-    ]);
-    textlinepath = newElementNS('textPath', [
-      ["id", baseId+"_textpath"],
-      ["href", "#"+baseId],
-      ["startOffset", "15%"]
-    ]);
-    textlinepath.textContent = elem["text"];
-
+    textElem.appendChild(textPath);
     canvas.appendChild(line);
-    canvas.appendChild(linemarker);
-    textline.appendChild(textlinepath);
-    canvas.appendChild(textline);
+    canvas.appendChild(textElem);
   });
 
   return [nodes, edges];
-
 }
+

@@ -96,7 +96,7 @@ const dfa3 = {
 }
 
 const dfa4 = {
-  "description": "Does input have atleast one 0 and terminates with 1.",
+  "description": "Does input have atleast one 0 and terminates with 1?",
   "vertices": [
     {"text": "A", "type": "start"},
     {"text": "B", "type": "none"},
@@ -127,7 +127,7 @@ const dfa4 = {
 }
 
 const dfa5 = {
-  "description": "Does first occurence of 0 is in a group of size atleast three.",
+  "description": "Does first occurence of 0 is in a group of size atleast three?",
   "vertices": [
     {"text": "A", "type": "start"},
     {"text": "B", "type": "none"},
