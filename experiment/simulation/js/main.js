@@ -21,18 +21,18 @@ function refreshCanvas(){
 
   curr = ""
   if(inputPointer != -1){
-    console.log("before", inputPointer, curr);
+    // console.log("before", inputPointer, curr);
     // console.log(dfa[dfaIndex]["input"]);
     curr = dfa[dfaIndex]["input"][inputIndex]["states"][inputPointer];
-    console.log("after", inputPointer, curr);
+    // console.log("after", inputPointer, curr);
   }
 
   DFADescriptionContainer = document.getElementById("DFA_description_container");
   clearElem(DFADescriptionContainer);
-  span = newElement("font", [["id", "DFA_description"], ["color", textColor]]);
+  span = newElement("font", [["id", "DFA_description"], ["color", "brown"],["size", "5.5"]]);
   text = document.createTextNode(dfa[dfaIndex]["description"]);
+  DFADescriptionContainer.appendChild(span);
   span.appendChild(text);
-  DFADescriptionContainer.appendChild(text);
 
   res = displayCanvas(canvas, dfa[dfaIndex], inputPointer, curr);
 
@@ -67,13 +67,31 @@ function resetStack(){
   clearElem(stack);
 }
 
-function addToStack(str){
+// function addToStack(str){
+//   stack = document.getElementById("stack_list");
+//   listElem = newElement("li", []);
+//   textNode = document.createTextNode(str);
+//   listElem.appendChild(textNode)
+//   stack.appendChild(listElem);
+
+// }
+function addToStack(str) {
   stack = document.getElementById("stack_list");
+
+  // Create a new list element with a bullet point
   listElem = newElement("li", []);
   textNode = document.createTextNode(str);
-  listElem.appendChild(textNode)
-  stack.appendChild(listElem);
+  listElem.appendChild(textNode);
 
+  // Prepend the new list item at the top of the stack (insert before the first child)
+  if (stack.firstChild) {
+    stack.firstChild.style.fontWeight = "normal";
+    stack.insertBefore(listElem, stack.firstChild);
+  } else {
+    stack.appendChild(listElem);
+  }
+  // Make the top element bold
+  stack.firstChild.style.fontWeight = "bold";
 }
 
 function removeFromStack(){
@@ -125,12 +143,12 @@ window.addEventListener('load', function(e){
       refreshCanvas();
       str = "";
       if(inputPointer!=0){
-        str += "read character "+dfa[dfaIndex]["input"][inputIndex]["string"][inputPointer-1];
-        str += " and moved from state "+dfa[dfaIndex]["input"][inputIndex]["states"][inputPointer-1];
-        str += " to state "+dfa[dfaIndex]["input"][inputIndex]["states"][inputPointer];
+        str += "Read character "+dfa[dfaIndex]["input"][inputIndex]["string"][inputPointer-1];
+        str += " and moved from State "+dfa[dfaIndex]["input"][inputIndex]["states"][inputPointer-1];
+        str += " to State "+dfa[dfaIndex]["input"][inputIndex]["states"][inputPointer];
       }
       if(inputPointer==0){
-        str += "moved to start state";
+        str += "Moved to Start State";
       }
       addToStack(str);
 
