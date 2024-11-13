@@ -55,31 +55,31 @@ Given any string in $ \Sigma^* $, we can simulate the finite state automaton usi
 
 Automaton reads 1 and stays in $ q_0 $.
 
-![Automaton reads 1 and stays in $ q_0 $](images/Step2.png)
+![Automaton reads 1 and stays in q_0](images/Step2.png)
 
 Automaton reads 0 and moves to $ q_1 $
 
-![Automaton reads 0 and moves to $ q_1 $](images/Step3.png)
+![Automaton reads 0 and moves to q_1](images/Step3.png)
 
 Automaton reads 1 and moves to $ q_0 $
 
-![Automaton reads 1 and moves to $ q_0 $](images/Step4.png)
+![Automaton reads 1 and moves to q_0](images/Step4.png)
 
 Automaton reads 0 and moves to $ q_1 $
 
-![Automaton reads 0 and moves to $ q_1 $](images/Step5.png)
+![Automaton reads 0 and moves to q_1](images/Step5.png)
 
 Automaton reads 0 and moves to $ q_2 $
 
-![Automaton reads 0 and moves to $ q_2 $](images/Step6.png)
+![Automaton reads 0 and moves to q_2](images/Step6.png)
 
 Automaton reads 0 and stays in $ q_2 $
 
-![Automaton reads 0 and stays in $q_2$](images/Step7.png)
+![Automaton reads 0 and stays in q_2](images/Step7.png)
 
 Automaton reads 1 and moves to $ q_3 $
 
-![Automaton reads 1 and moves to $ q_3 $](images/Step8.png)
+![Automaton reads 1 and moves to q_3](images/Step8.png)
 
 Automaton accepts the string upon reaching $ q_3 $.
 
@@ -90,7 +90,7 @@ A language is a set of strings over a given alphabet $\Sigma$.
 
 Given a machine $ M = (Q, \Sigma, \delta, q_0, F) $,
 - A string $ x $ is *accepted* by machine $M $ if a run of machine $M $ on $x $ ends in an accepting state.
-- Language of $ M $, $ L(M) = \{w\in\Sigma^{*}\mid \text{$ w $ is accepted by $ M $}\} $.
+- Language of $ M $, $ L(M) = \{w\in\Sigma^{*}\mid w~\mathrm{is accepted by}~M \} $.
 - For a set $ A $ if $ L(M) = A $, then $ M $ *recognizes* $A$.
 
 The above definition does not use the word *deterministic*, and as we shall see in the [next experiment](https://virtual-labs.github.io/exp-non-determinstic-finite-automaton-iiith), this also holds for non-deterministic finite state automata.
