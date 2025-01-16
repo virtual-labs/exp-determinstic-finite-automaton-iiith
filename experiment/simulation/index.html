@@ -13,8 +13,7 @@
     <div class="columns is-centered">
       <div id="instruction-container" class="column ">
         <div class="v-collapsible-instruction-container v-instruction-container instruction-container-background">
-          <div id="instruction-title" class="v-collapsible is-size-5">Simulating a Deterministic Finite
-          Automata [DFA]<br> Instructions </div>
+          <div id="instruction-title" class="v-collapsible is-size-5">Instructions</div>
           <div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
             <ul style="list-style: disc;">
               <li> <strong>Change DFA</strong> switches the DFA to a different DFA</li>
@@ -28,18 +27,17 @@
     </div>
   </div>
 
-
-</br>
-</br>
-</br>
-</br>
+  </br>
+  </br>
+  </br>
+  </br>
 
   <div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start">
-    <div id="control-container" class="column is-2-desktop is-12-tablet is-12-mobile" style="align-self: center;">
-      <div class="v-datalist-container">
+    <div id="control-container" class="column is-3-desktop is-12-tablet is-12-mobile" style="align-self: center;">
+      <div class="v-datalist-container" style="height:400px;">
         <div class="v-datalist-title">DFA controls</div>
         <div class="v-datalist-row" id="toolbar"
-          style="display: flex;flex-direction: column;justify-content: space-evenly;align-items: center;">
+          style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
           <button id="change_dfa" type="button" name="button" class="v-button">
             Change DFA
           </button>
@@ -56,7 +54,7 @@
       </div>
     </div>
 
-    <div class="column is-7-desktop is-12-tablet is-12-mobile">
+    <div class="column is-6-desktop is-12-tablet is-12-mobile">
       <div class="v-datalist-container" style="height:400px;" id="circuit-board">
         <div id="working-area">
           <div id="DFA_description_container"
@@ -71,11 +69,11 @@
         </div>
       </div>
     </div>
+
     <div id="trace-container" class="column is-3-desktop is-12-tablet is-12-mobile ">
       <div class="v-datalist-container" style="height:400px;" id="stack_container">
         <div class="v-datalist-title">Steps</div>
         <br>
-
         <ul id="stack_list" style="height:400px;overflow-y:auto;">
         </ul>
       </div>

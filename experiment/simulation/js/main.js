@@ -21,10 +21,7 @@ function refreshCanvas(){
 
   curr = ""
   if(inputPointer != -1){
-    // console.log("before", inputPointer, curr);
-    // console.log(dfa[dfaIndex]["input"]);
     curr = dfa[dfaIndex]["input"][inputIndex]["states"][inputPointer];
-    // console.log("after", inputPointer, curr);
   }
 
   DFADescriptionContainer = document.getElementById("DFA_description_container");
@@ -67,14 +64,6 @@ function resetStack(){
   clearElem(stack);
 }
 
-// function addToStack(str){
-//   stack = document.getElementById("stack_list");
-//   listElem = newElement("li", []);
-//   textNode = document.createTextNode(str);
-//   listElem.appendChild(textNode)
-//   stack.appendChild(listElem);
-
-// }
 function addToStack(str) {
   stack = document.getElementById("stack_list");
 
@@ -83,21 +72,23 @@ function addToStack(str) {
   textNode = document.createTextNode(str);
   listElem.appendChild(textNode);
 
-  // Prepend the new list item at the top of the stack (insert before the first child)
   if (stack.firstChild) {
     stack.firstChild.style.fontWeight = "normal";
     stack.insertBefore(listElem, stack.firstChild);
   } else {
     stack.appendChild(listElem);
   }
-  // Make the top element bold
   stack.firstChild.style.fontWeight = "bold";
 }
 
 function removeFromStack(){
   stack = document.getElementById("stack_list");
-  if(stack.firstChild){
-    stack.removeChild(stack.lastChild);
+  if (stack.firstChild) {
+    stack.removeChild(stack.firstChild);
+  
+    if (stack.firstChild) {
+      stack.firstChild.style.fontWeight = "bold";
+    }
   }
 }
 
@@ -147,7 +138,7 @@ window.addEventListener('load', function(e){
         str += " and moved from State "+dfa[dfaIndex]["input"][inputIndex]["states"][inputPointer-1];
         str += " to State "+dfa[dfaIndex]["input"][inputIndex]["states"][inputPointer];
       }
-      if(inputPointer==0){
+      if (inputPointer == 0) {
         str += "Moved to Start State";
       }
       addToStack(str);
