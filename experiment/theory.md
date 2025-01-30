@@ -1,8 +1,9 @@
-## Introduction
+### Introduction
 
 Consider the following example of a very rudimentary vending machine which only takes in 1 and 2 rupee coins as inputs, and all items are identical are priced at 5 rupees each. The vending machine pushes all the coins out if the input coins add up to 6 rupees without first adding up to 5 rupees, or any coin that is input after reaching 5 rupees.
 
-![State diagram of a vending machine](images/VendingMachine.png)
+<img src="images/VendingMachine.png" alt="State diagram of a vending machine" width="300">
+<!-- ![State diagram of a vending machine](images/VendingMachine.png) -->
 
 Observe that the machine can be in states 1, 2, 3, 4, 5, and >5 depending on what the sum of coins input so far is. For the machine, the sequence of coins input so far do not matter.
 
@@ -46,40 +47,50 @@ Afore mentioned rudimentary vending machine can be formalized as follows.
 - $ q_0 $ is the start state
 - $ F = \{q_5\} $
 
-![Finite State Automata representing the vending machine](images/FormalVendingMachine.png)
 
-### Run of a Finite State Automaton
+<img src="images/FormalVendingMachine.png" alt="Finite State Automata representing the vending machine" width="300">
+<!-- ![Finite State Automata representing the vending machine](images/FormalVendingMachine.png) -->
+
+#### Run of a Finite State Automaton
 Given any string in $ \Sigma^* $, we can simulate the finite state automaton using the predetermined transition function by reading the string bit by bit. Note that the start state is $ q_0 $, and the accept state is $ q_3 $.
 
-![Automaton before it reads the given string](images/Step1.png)
+<img src="images/Step1.png" alt="Automaton before it reads the given string" width="300">
+<!-- ![Automaton before it reads the given string](images/Step1.png) -->
 
 Automaton reads 1 and stays in $ q_0 $.
 
-![Automaton reads 1 and stays in q_0](images/Step2.png)
+<img src="images/Step2.png" alt="Automaton reads 1 and stays in q_0" width="300">
+<!-- ![Automaton reads 1 and stays in q_0](images/Step2.png) -->
 
 Automaton reads 0 and moves to $ q_1 $
 
-![Automaton reads 0 and moves to q_1](images/Step3.png)
+<img src="images/Step3.png" alt="Automaton reads 0 and moves to q_1" width="300">
+<!-- ![Automaton reads 0 and moves to q_1](images/Step3.png) -->
 
 Automaton reads 1 and moves to $ q_0 $
 
-![Automaton reads 1 and moves to q_0](images/Step4.png)
+<img src="images/Step4.png" alt="Automaton reads 1 and moves to q_0" width="300">
+<!-- ![Automaton reads 1 and moves to q_0](images/Step4.png) -->
 
 Automaton reads 0 and moves to $ q_1 $
 
-![Automaton reads 0 and moves to q_1](images/Step5.png)
+<img src="images/Step5.png" alt="Automaton reads 0 and moves to q_1" width="300">
+<!-- ![Automaton reads 0 and moves to q_1](images/Step5.png) -->
 
 Automaton reads 0 and moves to $ q_2 $
 
-![Automaton reads 0 and moves to q_2](images/Step6.png)
+<img src="images/Step6.png" alt="Automaton reads 0 and moves to q_2" width="300">
+<!-- ![Automaton reads 0 and moves to q_2](images/Step6.png) -->
 
 Automaton reads 0 and stays in $ q_2 $
 
-![Automaton reads 0 and stays in q_2](images/Step7.png)
+<img src="images/Step7.png" alt="Automaton reads 0 and stays in q_2" width="300">
+<!-- ![Automaton reads 0 and stays in q_2](images/Step7.png) -->
 
 Automaton reads 1 and moves to $ q_3 $
 
-![Automaton reads 1 and moves to q_3](images/Step8.png)
+<img src="images/Step8.png" alt="Automaton reads 1 and moves to q_3" width="300">
+<!-- ![Automaton reads 1 and moves to q_3](images/Step8.png) -->
 
 Automaton accepts the string upon reaching $ q_3 $.
 
@@ -102,14 +113,15 @@ The above definition does not use the word *deterministic*, and as we shall see 
 
 #### Example 2
 
+<img src="image.jpg" alt="Description" width="300">
 ![Automaton that recognizes strings that contain 001](images/DFAfor001.png)
 
 The above automaton recognizes strings that contain 001.
 
-## Related topics
-1. [Language acceptance by Non-Deterministic Finite Automata](https://virtual-labs.github.io/exp-non-determinstic-finite-automaton-iiith/)
-2. [Converting a NFA to a DFA](https://virtual-labs.github.io/exp-nfa-to-dfa-iiith/)
-3. [Converting a Regular Expression to NFA](https://virtual-labs.github.io/exp-converting-regular-expression-iiith/)
+<!-- ## Related topics -->
+<!-- 1. [Language acceptance by Non-Deterministic Finite Automata](https://virtual-labs.github.io/exp-non-determinstic-finite-automaton-iiith/) -->
+<!-- 2. [Converting a NFA to a DFA](https://virtual-labs.github.io/exp-nfa-to-dfa-iiith/) -->
+<!-- 3. [Converting a Regular Expression to NFA](https://virtual-labs.github.io/exp-converting-regular-expression-iiith/) -->
 
 
 
