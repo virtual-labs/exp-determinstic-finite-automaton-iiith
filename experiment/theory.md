@@ -113,8 +113,8 @@ The above definition does not use the word *deterministic*, and as we shall see 
 
 #### Example 2
 
-<img src="image.jpg" alt="Description" width="700">
-![Automaton that recognizes strings that contain 001](images/DFAfor001.png)
+<img src="images/DFAfor001.png" alt="Automaton that recognizes strings that contain 001" width="700">
+<!-- ![Automaton that recognizes strings that contain 001](images/DFAfor001.png) -->
 
 The above automaton recognizes strings that contain 001.
 
