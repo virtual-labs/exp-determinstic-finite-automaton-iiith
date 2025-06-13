@@ -2,70 +2,157 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "Which among the following is not required to describe a DFA?",
+      "question": "What is a Deterministic Finite Automaton (DFA)?",
       "answers": {
-        "a": "input alphabet set",
-        "b": "set of states",
-        "c": "transition function",
-        "d": "reject states"
+        "a": "A machine with infinite states and finite alphabet",
+        "b": "A finite state machine with exactly one transition for each state-symbol pair",
+        "c": "A machine that can have multiple transitions from one state",
+        "d": "A machine with memory to store previous computations"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
+        "a": "Incorrect. A DFA has finite states, not infinite states.",
+        "b": "Correct. A DFA is a finite state machine where for each state and input symbol, there is exactly one transition to another state.",
+        "c": "Incorrect. This describes a non-deterministic finite automaton (NFA), not a DFA.",
+        "d": "Incorrect. DFAs are memoryless machines that don't store previous computations."
       },
-      "correctAnswer": "d",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "What is the input to a transition function?",
+      "question": "How many components are in the formal definition of a DFA?",
       "answers": {
-        "a": "only state",
-        "b": "only input",
-        "c": "state or input",
-        "d": "state and input"
+        "a": "4 components",
+        "b": "5 components",
+        "c": "6 components",
+        "d": "7 components"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
+        "a": "Incorrect. A DFA has more than 4 components in its formal definition.",
+        "b": "Correct. A DFA is formally defined as a 5-tuple (Q, Σ, δ, q₀, F) where Q is states, Σ is alphabet, δ is transition function, q₀ is start state, and F is accept states.",
+        "c": "Incorrect. A DFA has exactly 5 components in its formal definition.",
+        "d": "Incorrect. A DFA has fewer than 7 components (that's for Turing machines)."
       },
-      "correctAnswer": "d",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "What is the output of a transition function?",
+      "question": "What does the transition function δ in a DFA map from and to?",
       "answers": {
-        "a": "only state",
-        "b": "only input",
-        "c": "state or input",
-        "d": "state and input"
+        "a": "From Q to Σ",
+        "b": "From Σ to Q",
+        "c": "From Q × Σ to Q",
+        "d": "From Q × Σ to P(Q)"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
+        "a": "Incorrect. The transition function doesn't map from states to alphabet.",
+        "b": "Incorrect. The transition function doesn't map from alphabet to states.",
+        "c": "Correct. The transition function δ: Q × Σ → Q maps from a state-symbol pair to exactly one next state.",
+        "d": "Incorrect. This describes the transition function of an NFA, which maps to the power set of states."
       },
-      "correctAnswer": "a",
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "When does a DFA accept a string?",
+      "answers": {
+        "a": "When it processes all symbols in the string",
+        "b": "When it reaches any state after processing the string",
+        "c": "When it ends in an accept state after processing the entire string",
+        "d": "When it visits an accept state at any point during processing"
+      },
+      "explanations": {
+        "a": "Incorrect. Processing all symbols is necessary but not sufficient for acceptance.",
+        "b": "Incorrect. The final state must be an accept state, not just any state.",
+        "c": "Correct. A DFA accepts a string if and only if it ends in an accept state after processing the entire input string.",
+        "d": "Incorrect. The DFA must end in an accept state, not just visit one during processing."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is a regular language?",
+      "answers": {
+        "a": "A language with a regular pattern",
+        "b": "A language recognized by some finite automaton",
+        "c": "A language with finite strings only",
+        "d": "A language that uses regular expressions"
+      },
+      "explanations": {
+        "a": "Incorrect. 'Regular pattern' is too vague and not the formal definition.",
+        "b": "Correct. A regular language is formally defined as a language that is recognized by some finite automaton (DFA or NFA).",
+        "c": "Incorrect. Regular languages can contain infinite strings.",
+        "d": "Incorrect. While regular languages can be described by regular expressions, this is not the defining characteristic."
+      },
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "Can a DFA be described using a transition table?",
+      "question": "What does it mean for a DFA to 'recognize' a language?",
       "answers": {
-        "a": "yes",
-        "b": "no",
-        "c": "yes only for simple DFAs"
+        "a": "The DFA can generate all strings in the language",
+        "b": "The DFA accepts exactly the strings that are in the language",
+        "c": "The DFA can count the number of strings in the language",
+        "d": "The DFA can determine if the language is finite"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": ""
+        "a": "Incorrect. DFAs recognize languages by accepting strings, not by generating them.",
+        "b": "Correct. A DFA recognizes a language L if it accepts exactly those strings that belong to L and rejects all others.",
+        "c": "Incorrect. Recognition is about acceptance/rejection, not counting strings.",
+        "d": "Incorrect. Recognition is about accepting strings in the language, not determining finiteness."
       },
-      "correctAnswer": "a",
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "In a DFA state diagram, what do the arrows represent?",
+      "answers": {
+        "a": "The order in which states were created",
+        "b": "The transitions between states based on input symbols",
+        "c": "The hierarchy of states",
+        "d": "The distance between states"
+      },
+      "explanations": {
+        "a": "Incorrect. Arrows don't represent creation order.",
+        "b": "Correct. Arrows in a DFA state diagram represent transitions from one state to another based on input symbols.",
+        "c": "Incorrect. There is no hierarchy in DFA states.",
+        "d": "Incorrect. Arrows don't represent physical or conceptual distance."
+      },
+      "correctAnswer": "b",
       "difficulty": "beginner"
+    },
+    {
+      "question": "What happens if a DFA encounters an input symbol for which there is no defined transition from the current state?",
+      "answers": {
+        "a": "The DFA accepts the string",
+        "b": "The DFA rejects the string",
+        "c": "The DFA waits for the next symbol",
+        "d": "The DFA returns to the start state"
+      },
+      "explanations": {
+        "a": "Incorrect. Missing transitions lead to rejection, not acceptance.",
+        "b": "Correct. If there is no defined transition for a state-symbol pair, the DFA rejects the string (it gets stuck).",
+        "c": "Incorrect. DFAs process symbols sequentially and cannot wait.",
+        "d": "Incorrect. There is no automatic return to the start state."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Which of the following is a key property of DFAs?",
+      "answers": {
+        "a": "They have unlimited memory",
+        "b": "They can solve any computational problem",
+        "c": "They are memoryless (no memory of previous states)",
+        "d": "They can modify their transition function during execution"
+      },
+      "explanations": {
+        "a": "Incorrect. DFAs have no memory beyond their current state.",
+        "b": "Incorrect. DFAs can only recognize regular languages, not solve all computational problems.",
+        "c": "Correct. DFAs are memoryless machines - their behavior depends only on the current state and input symbol, not on the history of how they reached that state.",
+        "d": "Incorrect. The transition function is fixed and cannot be modified during execution."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
     }
   ]
 }

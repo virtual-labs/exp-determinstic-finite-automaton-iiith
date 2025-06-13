@@ -62,6 +62,159 @@
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
+    },
+    {
+      "question": "What is the pumping lemma for regular languages used for?",
+      "answers": {
+        "a": "To prove that a language is regular",
+        "b": "To prove that a language is not regular",
+        "c": "To minimize the number of states in a DFA",
+        "d": "To convert NFAs to DFAs"
+      },
+      "explanations": {
+        "a": "Incorrect. The pumping lemma cannot be used to prove that a language is regular.",
+        "b": "Correct. The pumping lemma is used to prove that certain languages are not regular by showing they fail the pumping property.",
+        "c": "Incorrect. The pumping lemma is not used for state minimization.",
+        "d": "Incorrect. The pumping lemma is not used for NFA to DFA conversion."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "Which of the following operations is closed under regular languages?",
+      "answers": {
+        "a": "Union only",
+        "b": "Intersection only",
+        "c": "Complement only",
+        "d": "Union, intersection, and complement"
+      },
+      "explanations": {
+        "a": "Incorrect. Regular languages are closed under more than just union.",
+        "b": "Incorrect. Regular languages are closed under more than just intersection.",
+        "c": "Incorrect. Regular languages are closed under more than just complement.",
+        "d": "Correct. Regular languages are closed under union, intersection, complement, concatenation, and Kleene star operations."
+      },
+      "correctAnswer": "d",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is the minimum number of states required for a DFA that accepts strings over {0,1} with an even number of 0s and an odd number of 1s?",
+      "answers": {
+        "a": "2 states",
+        "b": "3 states",
+        "c": "4 states",
+        "d": "5 states"
+      },
+      "explanations": {
+        "a": "Incorrect. Two states are not sufficient to track both even/odd counts of 0s and 1s.",
+        "b": "Incorrect. Three states are not sufficient for this language.",
+        "c": "Correct. Four states are needed: (even 0s, even 1s), (even 0s, odd 1s), (odd 0s, even 1s), (odd 0s, odd 1s). We accept strings that end in state (even 0s, odd 1s).",
+        "d": "Incorrect. Four states are sufficient; five states are more than necessary."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "What is DFA minimization?",
+      "answers": {
+        "a": "Reducing the size of the input alphabet",
+        "b": "Creating an equivalent DFA with the minimum number of states",
+        "c": "Removing unreachable states only",
+        "d": "Converting a DFA to an NFA"
+      },
+      "explanations": {
+        "a": "Incorrect. Minimization doesn't change the input alphabet.",
+        "b": "Correct. DFA minimization creates an equivalent DFA with the minimum possible number of states by merging equivalent states.",
+        "c": "Incorrect. Minimization involves more than just removing unreachable states; it also merges equivalent states.",
+        "d": "Incorrect. Minimization creates a smaller DFA, not an NFA."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Two states in a DFA are equivalent if:",
+      "answers": {
+        "a": "They have the same number of outgoing transitions",
+        "b": "They are both accept states or both non-accept states",
+        "c": "For every possible input string, they lead to the same acceptance outcome",
+        "d": "They have the same label"
+      },
+      "explanations": {
+        "a": "Incorrect. The number of outgoing transitions doesn't determine equivalence.",
+        "b": "Incorrect. Being both accept or non-accept states is necessary but not sufficient for equivalence.",
+        "c": "Correct. Two states are equivalent if, for every possible input string from those states, the DFA reaches the same acceptance outcome (both accept or both reject).",
+        "d": "Incorrect. State labels are arbitrary and don't determine equivalence."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "What is the time complexity of the standard DFA minimization algorithm?",
+      "answers": {
+        "a": "O(n)",
+        "b": "O(n log n)",
+        "c": "O(n²)",
+        "d": "O(n³)"
+      },
+      "explanations": {
+        "a": "Incorrect. DFA minimization requires more than linear time.",
+        "b": "Incorrect. The standard algorithm is not O(n log n).",
+        "c": "Correct. The standard table-filling algorithm for DFA minimization has O(n²) time complexity, where n is the number of states.",
+        "d": "Incorrect. The algorithm is more efficient than cubic time."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Which of the following languages is NOT regular?",
+      "answers": {
+        "a": "Strings over {0,1} with equal number of 0s and 1s",
+        "b": "Strings over {0,1} ending with 01",
+        "c": "Strings over {0,1} with even length",
+        "d": "Strings over {0,1} containing the substring 101"
+      },
+      "explanations": {
+        "a": "Correct. The language {0ⁿ1ⁿ | n ≥ 0} is not regular, as proven by the pumping lemma. A DFA cannot count and compare two unbounded quantities.",
+        "b": "Incorrect. This language is regular and can be recognized by a simple DFA.",
+        "c": "Incorrect. This language is regular - a DFA can track whether the string length is even or odd.",
+        "d": "Incorrect. This language is regular and can be recognized by a DFA that searches for the pattern 101."
+      },
+      "correctAnswer": "a",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "What is the relationship between DFAs and regular expressions?",
+      "answers": {
+        "a": "DFAs are more powerful than regular expressions",
+        "b": "Regular expressions are more powerful than DFAs",
+        "c": "DFAs and regular expressions have equivalent expressive power",
+        "d": "DFAs and regular expressions are incomparable"
+      },
+      "explanations": {
+        "a": "Incorrect. DFAs are not more powerful than regular expressions.",
+        "b": "Incorrect. Regular expressions are not more powerful than DFAs.",
+        "c": "Correct. DFAs and regular expressions have equivalent expressive power - they both describe exactly the class of regular languages. There are algorithms to convert between them.",
+        "d": "Incorrect. They are comparable and equivalent in expressive power."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "In practical applications, what is a major advantage of DFAs over NFAs?",
+      "answers": {
+        "a": "DFAs can recognize more languages than NFAs",
+        "b": "DFAs are easier to construct than NFAs",
+        "c": "DFAs have faster execution time for string matching",
+        "d": "DFAs require less memory than NFAs"
+      },
+      "explanations": {
+        "a": "Incorrect. DFAs and NFAs recognize the same class of languages (regular languages).",
+        "b": "Incorrect. NFAs are often easier to construct, especially from regular expressions.",
+        "c": "Correct. DFAs have faster execution time O(n) for string matching because they don't need to track multiple states simultaneously, unlike NFAs which may require O(mn) time.",
+        "d": "Incorrect. DFAs may actually require more memory due to potentially having more states after conversion from NFAs."
+      },
+      "correctAnswer": "c",
+      "difficulty": "advanced"
     }
   ]
 }
