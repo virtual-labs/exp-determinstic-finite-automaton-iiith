@@ -1,8 +1,3 @@
-
-# Procedure
-
-This experiment provides an interactive simulation to help you understand how Deterministic Finite Automata (DFA) process input strings and determine acceptance or rejection. The simulation includes five different DFA examples, each designed to recognize specific patterns in binary strings.
-
 ## Getting Started
 
 The simulation interface consists of three main components:
