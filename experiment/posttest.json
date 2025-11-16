@@ -4,14 +4,14 @@
     {
       "question": "How many states can the automaton transition to upon reading input?",
       "answers": {
-        "a": "atleast one",
-        "b": "atmost one",
+        "a": "at least one",
+        "b": "at most one",
         "c": "exactly one"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": ""
+        "a": "Incorrect. In a DFA, each state-symbol pair has exactly one transition.",
+        "b": "Incorrect. In a DFA, each state-symbol pair has exactly one transition, not 'at most one'.",
+        "c": "Correct. In a DFA, for each state and input symbol, there is exactly one transition to another state."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
@@ -19,14 +19,14 @@
     {
       "question": "How many transition functions does a DFA have?",
       "answers": {
-        "a": "atleast one",
-        "b": "atmost one",
+        "a": "at least one",
+        "b": "at most one",
         "c": "exactly one"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": ""
+        "a": "Incorrect. A DFA has exactly one transition function.",
+        "b": "Incorrect. A DFA has exactly one transition function, not 'at most one'.",
+        "c": "Correct. A DFA is defined with exactly one transition function δ: Q × Σ → Q."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
@@ -40,10 +40,10 @@
         "d": "depends on input"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
+        "a": "Incorrect. A DFA processes exactly one symbol at a time and stops when the input is exhausted.",
+        "b": "Correct. A DFA runs for exactly as long as the input string length. Once all input symbols are processed, the DFA stops.",
+        "c": "Incorrect. The transition function doesn't determine whether the DFA runs infinitely; the input length does.",
+        "d": "Incorrect. A DFA always processes a finite input string and stops after reading all symbols."
       },
       "correctAnswer": "b",
       "difficulty": "beginner"
@@ -56,29 +56,46 @@
         "c": "no"
       },
       "explanations": {
-        "a": "",
-        "b": "",
-        "c": ""
+        "a": "Correct. A DFA can track whether the count of any specific symbol is even or odd using just two states (one for even count, one for odd count).",
+        "b": "Incorrect. Parity counting works for any alphabet, not just binary alphabets.",
+        "c": "Incorrect. DFAs can definitely track parity using a finite number of states."
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "What is the pumping lemma for regular languages used for?",
+      "question": "If a DFA accepts a string w, what must be true?",
       "answers": {
-        "a": "To prove that a language is regular",
-        "b": "To prove that a language is not regular",
-        "c": "To minimize the number of states in a DFA",
-        "d": "To convert NFAs to DFAs"
+        "a": "The string w must be empty",
+        "b": "The DFA must end in an accept state after processing w",
+        "c": "The DFA must visit every state while processing w",
+        "d": "The string w must have even length"
       },
       "explanations": {
-        "a": "Incorrect. The pumping lemma cannot be used to prove that a language is regular.",
-        "b": "Correct. The pumping lemma is used to prove that certain languages are not regular by showing they fail the pumping property.",
-        "c": "Incorrect. The pumping lemma is not used for state minimization.",
-        "d": "Incorrect. The pumping lemma is not used for NFA to DFA conversion."
+        "a": "Incorrect. A DFA can accept both empty and non-empty strings.",
+        "b": "Correct. A DFA accepts a string if and only if it ends in an accept state (a state in F) after processing all symbols.",
+        "c": "Incorrect. The DFA only needs to end in an accept state; it doesn't need to visit every state.",
+        "d": "Incorrect. String length has no inherent relationship with acceptance."
       },
       "correctAnswer": "b",
-      "difficulty": "advanced"
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is the language of a DFA?",
+      "answers": {
+        "a": "The set of all states in the DFA",
+        "b": "The set of all strings that the DFA accepts",
+        "c": "The set of all transitions in the DFA",
+        "d": "The alphabet of the DFA"
+      },
+      "explanations": {
+        "a": "Incorrect. The language is about strings, not states.",
+        "b": "Correct. The language L(M) of a DFA M is the set of all strings that M accepts.",
+        "c": "Incorrect. The language is about accepted strings, not transitions.",
+        "d": "Incorrect. The alphabet is the set of input symbols, not the language."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
     },
     {
       "question": "Which of the following operations is closed under regular languages?",
@@ -98,89 +115,55 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "What is the minimum number of states required for a DFA that accepts strings over {0,1} with an even number of 0s and an odd number of 1s?",
+      "question": "What happens when a DFA reads the empty string ε?",
       "answers": {
-        "a": "2 states",
-        "b": "3 states",
-        "c": "4 states",
-        "d": "5 states"
+        "a": "The DFA rejects it automatically",
+        "b": "The DFA accepts it if the start state is an accept state",
+        "c": "The DFA enters an error state",
+        "d": "The DFA cannot process empty strings"
       },
       "explanations": {
-        "a": "Incorrect. Two states are not sufficient to track both even/odd counts of 0s and 1s.",
-        "b": "Incorrect. Three states are not sufficient for this language.",
-        "c": "Correct. Four states are needed: (even 0s, even 1s), (even 0s, odd 1s), (odd 0s, even 1s), (odd 0s, odd 1s). We accept strings that end in state (even 0s, odd 1s).",
-        "d": "Incorrect. Four states are sufficient; five states are more than necessary."
-      },
-      "correctAnswer": "c",
-      "difficulty": "advanced"
-    },
-    {
-      "question": "What is DFA minimization?",
-      "answers": {
-        "a": "Reducing the size of the input alphabet",
-        "b": "Creating an equivalent DFA with the minimum number of states",
-        "c": "Removing unreachable states only",
-        "d": "Converting a DFA to an NFA"
-      },
-      "explanations": {
-        "a": "Incorrect. Minimization doesn't change the input alphabet.",
-        "b": "Correct. DFA minimization creates an equivalent DFA with the minimum possible number of states by merging equivalent states.",
-        "c": "Incorrect. Minimization involves more than just removing unreachable states; it also merges equivalent states.",
-        "d": "Incorrect. Minimization creates a smaller DFA, not an NFA."
+        "a": "Incorrect. Whether ε is accepted depends on the start state.",
+        "b": "Correct. When processing the empty string, the DFA remains in the start state. If the start state is an accept state, then ε is accepted.",
+        "c": "Incorrect. There is no special error state for empty strings.",
+        "d": "Incorrect. DFAs can process empty strings; they simply don't transition."
       },
       "correctAnswer": "b",
       "difficulty": "intermediate"
     },
     {
-      "question": "Two states in a DFA are equivalent if:",
+      "question": "Given a DFA with n states, what is the maximum length of the shortest string that the DFA can accept?",
       "answers": {
-        "a": "They have the same number of outgoing transitions",
-        "b": "They are both accept states or both non-accept states",
-        "c": "For every possible input string, they lead to the same acceptance outcome",
-        "d": "They have the same label"
+        "a": "n",
+        "b": "n - 1",
+        "c": "2n",
+        "d": "There is no maximum; it depends on the specific DFA"
       },
       "explanations": {
-        "a": "Incorrect. The number of outgoing transitions doesn't determine equivalence.",
-        "b": "Incorrect. Being both accept or non-accept states is necessary but not sufficient for equivalence.",
-        "c": "Correct. Two states are equivalent if, for every possible input string from those states, the DFA reaches the same acceptance outcome (both accept or both reject).",
-        "d": "Incorrect. State labels are arbitrary and don't determine equivalence."
+        "a": "Incorrect. The shortest accepted string could be much shorter or even empty.",
+        "b": "Incorrect. This is not a general rule for DFAs.",
+        "c": "Incorrect. This is not related to the shortest accepted string.",
+        "d": "Correct. The length of the shortest accepted string depends entirely on the DFA's structure. It could be 0 (if the start state is an accept state) or any other value."
       },
-      "correctAnswer": "c",
+      "correctAnswer": "d",
       "difficulty": "advanced"
     },
     {
-      "question": "What is the time complexity of the standard DFA minimization algorithm?",
+      "question": "If two DFAs M1 and M2 accept the same language, what can we say about them?",
       "answers": {
-        "a": "O(n)",
-        "b": "O(n log n)",
-        "c": "O(n²)",
-        "d": "O(n³)"
+        "a": "They must have the same number of states",
+        "b": "They must have identical transition functions",
+        "c": "They are equivalent DFAs",
+        "d": "They must have the same alphabet"
       },
       "explanations": {
-        "a": "Incorrect. DFA minimization requires more than linear time.",
-        "b": "Incorrect. The standard algorithm is not O(n log n).",
-        "c": "Correct. The standard table-filling algorithm for DFA minimization has O(n²) time complexity, where n is the number of states.",
-        "d": "Incorrect. The algorithm is more efficient than cubic time."
+        "a": "Incorrect. Two DFAs can accept the same language with different numbers of states.",
+        "b": "Incorrect. Different DFAs can have different structures but accept the same language.",
+        "c": "Correct. Two DFAs are equivalent if they accept the same language, regardless of their internal structure.",
+        "d": "Incorrect. While they typically work with the same alphabet, equivalence is about the language they accept."
       },
       "correctAnswer": "c",
       "difficulty": "intermediate"
-    },
-    {
-      "question": "Which of the following languages is NOT regular?",
-      "answers": {
-        "a": "Strings over {0,1} with equal number of 0s and 1s",
-        "b": "Strings over {0,1} ending with 01",
-        "c": "Strings over {0,1} with even length",
-        "d": "Strings over {0,1} containing the substring 101"
-      },
-      "explanations": {
-        "a": "Correct. The language {0ⁿ1ⁿ | n ≥ 0} is not regular, as proven by the pumping lemma. A DFA cannot count and compare two unbounded quantities.",
-        "b": "Incorrect. This language is regular and can be recognized by a simple DFA.",
-        "c": "Incorrect. This language is regular - a DFA can track whether the string length is even or odd.",
-        "d": "Incorrect. This language is regular and can be recognized by a DFA that searches for the pattern 101."
-      },
-      "correctAnswer": "a",
-      "difficulty": "advanced"
     },
     {
       "question": "What is the relationship between DFAs and regular expressions?",
@@ -200,21 +183,38 @@
       "difficulty": "intermediate"
     },
     {
-      "question": "In practical applications, what is a major advantage of DFAs over NFAs?",
+      "question": "Can a DFA accept an infinite language?",
       "answers": {
-        "a": "DFAs can recognize more languages than NFAs",
-        "b": "DFAs are easier to construct than NFAs",
-        "c": "DFAs have faster execution time for string matching",
-        "d": "DFAs require less memory than NFAs"
+        "a": "No, DFAs can only accept finite languages",
+        "b": "Yes, if the DFA has cycles and can reach an accept state from within a cycle",
+        "c": "Yes, but only if the DFA has infinite states",
+        "d": "No, because DFAs have finite memory"
       },
       "explanations": {
-        "a": "Incorrect. DFAs and NFAs recognize the same class of languages (regular languages).",
-        "b": "Incorrect. NFAs are often easier to construct, especially from regular expressions.",
-        "c": "Correct. DFAs have faster execution time O(n) for string matching because they don't need to track multiple states simultaneously, unlike NFAs which may require O(mn) time.",
-        "d": "Incorrect. DFAs may actually require more memory due to potentially having more states after conversion from NFAs."
+        "a": "Incorrect. DFAs can accept infinite languages.",
+        "b": "Correct. A DFA with finite states can accept an infinite language by having cycles that allow it to accept strings of unbounded length.",
+        "c": "Incorrect. DFAs by definition have finite states, yet can accept infinite languages.",
+        "d": "Incorrect. Having finite (constant) memory doesn't prevent accepting infinite languages."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "In a DFA, what determines which state is reached after processing a string?",
+      "answers": {
+        "a": "Only the length of the string",
+        "b": "Only the last symbol of the string",
+        "c": "The entire sequence of symbols in the string and the transition function",
+        "d": "The number of accept states in the DFA"
+      },
+      "explanations": {
+        "a": "Incorrect. The actual symbols matter, not just the length.",
+        "b": "Incorrect. The entire string matters, not just the last symbol.",
+        "c": "Correct. The final state is determined by starting at the start state and following transitions for each symbol in the string according to the transition function.",
+        "d": "Incorrect. The number of accept states doesn't determine the final state reached."
       },
       "correctAnswer": "c",
-      "difficulty": "advanced"
+      "difficulty": "intermediate"
     }
   ]
 }

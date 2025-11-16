@@ -121,16 +121,16 @@
       "difficulty": "beginner"
     },
     {
-      "question": "What happens if a DFA encounters an input symbol for which there is no defined transition from the current state?",
+      "question": "In a properly defined DFA, what must be true about the transition function?",
       "answers": {
         "a": "The DFA accepts the string",
-        "b": "The DFA rejects the string",
+        "b": "The transition function must be total (defined for all state-symbol pairs)",
         "c": "The DFA waits for the next symbol",
         "d": "The DFA returns to the start state"
       },
       "explanations": {
-        "a": "Incorrect. Missing transitions lead to rejection, not acceptance.",
-        "b": "Correct. If there is no defined transition for a state-symbol pair, the DFA rejects the string (it gets stuck).",
+        "a": "Incorrect. This is not about what must be true in a properly defined DFA.",
+        "b": "Correct. By definition, a DFA must have a total transition function δ: Q × Σ → Q, meaning it is defined for every state-symbol pair. If not all transitions are explicitly shown in a diagram, missing transitions typically lead to an implicit reject/trap state.",
         "c": "Incorrect. DFAs process symbols sequentially and cannot wait.",
         "d": "Incorrect. There is no automatic return to the start state."
       },
@@ -142,13 +142,13 @@
       "answers": {
         "a": "They have unlimited memory",
         "b": "They can solve any computational problem",
-        "c": "They are memoryless (no memory of previous states)",
+        "c": "They have constant memory (only remember the current state)",
         "d": "They can modify their transition function during execution"
       },
       "explanations": {
-        "a": "Incorrect. DFAs have no memory beyond their current state.",
+        "a": "Incorrect. DFAs have constant memory (only the current state).",
         "b": "Incorrect. DFAs can only recognize regular languages, not solve all computational problems.",
-        "c": "Correct. DFAs are memoryless machines - their behavior depends only on the current state and input symbol, not on the history of how they reached that state.",
+        "c": "Correct. DFAs have constant memory - their behavior depends only on the current state and input symbol. While they can 'remember' information via their states, they don't have memory of the history or path taken to reach the current state.",
         "d": "Incorrect. The transition function is fixed and cannot be modified during execution."
       },
       "correctAnswer": "c",

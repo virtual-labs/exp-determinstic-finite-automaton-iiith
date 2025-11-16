@@ -483,22 +483,64 @@ function refreshCanvas() {
       curr = dfa[dfaIndex]["input"][inputIndex]["states"][inputPointer];
     }
 
-    // Update DFA description
+    // Update DFA description - hidden by default
     const DFADescriptionContainer = document.getElementById("DFA_description_container");
     clearElem(DFADescriptionContainer);
     
-    // Create modern description with gradient background
+    // Create container with reveal button
+    const descriptionWrapper = newElement("div", [["class", "relative"]]);
+    
+    // Hidden description (initially blurred/hidden)
     const descriptionDiv = newElement("div", [
-      ["class", "bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl p-4 border border-white/20 fade-in-up"]
+      ["id", "dfa-description-content"],
+      ["class", "bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl p-2 border border-gray-200 blur-sm transition-all duration-300"]
     ]);
     const span = newElement("span", [
       ["id", "DFA_description"], 
-      ["class", "text-white font-medium text-sm"]
+      ["class", "text-black font-medium text-sm"]
     ]);
     const text = document.createTextNode(dfa[dfaIndex]["description"]);
     span.appendChild(text);
     descriptionDiv.appendChild(span);
-    DFADescriptionContainer.appendChild(descriptionDiv);
+    
+    // Reveal button
+    const revealBtn = newElement("button", [
+      ["id", "reveal-language-btn"],
+      ["class", "neu-button text-xs px-3 py-1 mt-2"]
+    ]);
+    revealBtn.innerHTML = `
+      <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+        <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
+      </svg>
+      Reveal Language
+    `;
+    revealBtn.onclick = function() {
+      const content = document.getElementById("dfa-description-content");
+      if (content.classList.contains("blur-sm")) {
+        content.classList.remove("blur-sm");
+        revealBtn.innerHTML = `
+          <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 012.45 2.45l1.514 1.514a4 4 0 00-5.478-5.478z" clip-rule="evenodd"></path>
+            <path d="M12.454 16.697L9.75 13.992a4 4 0 01-3.742-3.741L2.335 6.578A9.98 9.98 0 00.458 10c1.274 4.057 5.065 7 9.542 7 .847 0 1.669-.105 2.454-.303z"></path>
+          </svg>
+          Hide Language
+        `;
+      } else {
+        content.classList.add("blur-sm");
+        revealBtn.innerHTML = `
+          <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"></path>
+          </svg>
+          Reveal Language
+        `;
+      }
+    };
+    
+    descriptionWrapper.appendChild(descriptionDiv);
+    descriptionWrapper.appendChild(revealBtn);
+    DFADescriptionContainer.appendChild(descriptionWrapper);
 
     const res = displayCanvas(canvas, dfa[dfaIndex], inputPointer, curr);
     nodes = res[0];
