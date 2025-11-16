@@ -15,7 +15,7 @@ Note that the following properties held for the above machine.
 - Predetermined transition logic
 - Start state: $ \{0\} $
 - Actionable states: $ \{5, >5\} $
-- No memory of previous states
+- Constant memory (only remembers current state)
 
 This is in fact an example of what we call a deterministic finite state machines or finite state automaton. In short, we refer to them as DFAs.
 
