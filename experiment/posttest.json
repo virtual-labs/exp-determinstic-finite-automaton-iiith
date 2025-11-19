@@ -2,38 +2,219 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "How many states can the automaton transition to upon reading input?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "at least one",
+        "b": "at most one",
+        "c": "exactly one"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect. In a DFA, each state-symbol pair has exactly one transition.",
+        "b": "Incorrect. In a DFA, each state-symbol pair has exactly one transition, not 'at most one'.",
+        "c": "Correct. In a DFA, for each state and input symbol, there is exactly one transition to another state."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "How many transition functions does a DFA have?",
+      "answers": {
+        "a": "at least one",
+        "b": "at most one",
+        "c": "exactly one"
+      },
+      "explanations": {
+        "a": "Incorrect. A DFA has exactly one transition function.",
+        "b": "Incorrect. A DFA has exactly one transition function, not 'at most one'.",
+        "c": "Correct. A DFA is defined with exactly one transition function δ: Q × Σ → Q."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Can a DFA run infinitely?",
+      "answers": {
+        "a": "yes",
+        "b": "no",
+        "c": "depends on transition function",
+        "d": "depends on input"
+      },
+      "explanations": {
+        "a": "Incorrect. A DFA processes exactly one symbol at a time and stops when the input is exhausted.",
+        "b": "Correct. A DFA runs for exactly as long as the input string length. Once all input symbols are processed, the DFA stops.",
+        "c": "Incorrect. The transition function doesn't determine whether the DFA runs infinitely; the input length does.",
+        "d": "Incorrect. A DFA always processes a finite input string and stops after reading all symbols."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Can a DFA be constructed to count the parity of a given input symbol?",
+      "answers": {
+        "a": "yes in all cases",
+        "b": "yes if alphabet set is binary",
+        "c": "no"
+      },
+      "explanations": {
+        "a": "Correct. A DFA can track whether the count of any specific symbol is even or odd using just two states (one for even count, one for odd count).",
+        "b": "Incorrect. Parity counting works for any alphabet, not just binary alphabets.",
+        "c": "Incorrect. DFAs can definitely track parity using a finite number of states."
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "If a DFA accepts a string w, what must be true?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "The string w must be empty",
+        "b": "The DFA must end in an accept state after processing w",
+        "c": "The DFA must visit every state while processing w",
+        "d": "The string w must have even length"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Incorrect. A DFA can accept both empty and non-empty strings.",
+        "b": "Correct. A DFA accepts a string if and only if it ends in an accept state (a state in F) after processing all symbols.",
+        "c": "Incorrect. The DFA only needs to end in an accept state; it doesn't need to visit every state.",
+        "d": "Incorrect. String length has no inherent relationship with acceptance."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is the language of a DFA?",
+      "answers": {
+        "a": "The set of all states in the DFA",
+        "b": "The set of all strings that the DFA accepts",
+        "c": "The set of all transitions in the DFA",
+        "d": "The alphabet of the DFA"
+      },
+      "explanations": {
+        "a": "Incorrect. The language is about strings, not states.",
+        "b": "Correct. The language L(M) of a DFA M is the set of all strings that M accepts.",
+        "c": "Incorrect. The language is about accepted strings, not transitions.",
+        "d": "Incorrect. The alphabet is the set of input symbols, not the language."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following operations is closed under regular languages?",
+      "answers": {
+        "a": "Union only",
+        "b": "Intersection only",
+        "c": "Complement only",
+        "d": "Union, intersection, and complement"
+      },
+      "explanations": {
+        "a": "Incorrect. Regular languages are closed under more than just union.",
+        "b": "Incorrect. Regular languages are closed under more than just intersection.",
+        "c": "Incorrect. Regular languages are closed under more than just complement.",
+        "d": "Correct. Regular languages are closed under union, intersection, complement, concatenation, and Kleene star operations."
+      },
+      "correctAnswer": "d",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What happens when a DFA reads the empty string ε?",
+      "answers": {
+        "a": "The DFA rejects it automatically",
+        "b": "The DFA accepts it if the start state is an accept state",
+        "c": "The DFA enters an error state",
+        "d": "The DFA cannot process empty strings"
+      },
+      "explanations": {
+        "a": "Incorrect. Whether ε is accepted depends on the start state.",
+        "b": "Correct. When processing the empty string, the DFA remains in the start state. If the start state is an accept state, then ε is accepted.",
+        "c": "Incorrect. There is no special error state for empty strings.",
+        "d": "Incorrect. DFAs can process empty strings; they simply don't transition."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Given a DFA with n states, what is the maximum length of the shortest string that the DFA can accept?",
+      "answers": {
+        "a": "n",
+        "b": "n - 1",
+        "c": "2n",
+        "d": "There is no maximum; it depends on the specific DFA"
+      },
+      "explanations": {
+        "a": "Incorrect. The shortest accepted string could be much shorter or even empty.",
+        "b": "Incorrect. This is not a general rule for DFAs.",
+        "c": "Incorrect. This is not related to the shortest accepted string.",
+        "d": "Correct. The length of the shortest accepted string depends entirely on the DFA's structure. It could be 0 (if the start state is an accept state) or any other value."
+      },
+      "correctAnswer": "d",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "If two DFAs M1 and M2 accept the same language, what can we say about them?",
+      "answers": {
+        "a": "They must have the same number of states",
+        "b": "They must have identical transition functions",
+        "c": "They are equivalent DFAs",
+        "d": "They must have the same alphabet"
+      },
+      "explanations": {
+        "a": "Incorrect. Two DFAs can accept the same language with different numbers of states.",
+        "b": "Incorrect. Different DFAs can have different structures but accept the same language.",
+        "c": "Correct. Two DFAs are equivalent if they accept the same language, regardless of their internal structure.",
+        "d": "Incorrect. While they typically work with the same alphabet, equivalence is about the language they accept."
       },
       "correctAnswer": "c",
-      "difficulty": "beginner"
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "What is the relationship between DFAs and regular expressions?",
+      "answers": {
+        "a": "DFAs are more powerful than regular expressions",
+        "b": "Regular expressions are more powerful than DFAs",
+        "c": "DFAs and regular expressions have equivalent expressive power",
+        "d": "DFAs and regular expressions are incomparable"
+      },
+      "explanations": {
+        "a": "Incorrect. DFAs are not more powerful than regular expressions.",
+        "b": "Incorrect. Regular expressions are not more powerful than DFAs.",
+        "c": "Correct. DFAs and regular expressions have equivalent expressive power - they both describe exactly the class of regular languages. There are algorithms to convert between them.",
+        "d": "Incorrect. They are comparable and equivalent in expressive power."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "Can a DFA accept an infinite language?",
+      "answers": {
+        "a": "No, DFAs can only accept finite languages",
+        "b": "Yes, if the DFA has cycles and can reach an accept state from within a cycle",
+        "c": "Yes, but only if the DFA has infinite states",
+        "d": "No, because DFAs have finite memory"
+      },
+      "explanations": {
+        "a": "Incorrect. DFAs can accept infinite languages.",
+        "b": "Correct. A DFA with finite states can accept an infinite language by having cycles that allow it to accept strings of unbounded length.",
+        "c": "Incorrect. DFAs by definition have finite states, yet can accept infinite languages.",
+        "d": "Incorrect. Having finite (constant) memory doesn't prevent accepting infinite languages."
+      },
+      "correctAnswer": "b",
+      "difficulty": "advanced"
+    },
+    {
+      "question": "In a DFA, what determines which state is reached after processing a string?",
+      "answers": {
+        "a": "Only the length of the string",
+        "b": "Only the last symbol of the string",
+        "c": "The entire sequence of symbols in the string and the transition function",
+        "d": "The number of accept states in the DFA"
+      },
+      "explanations": {
+        "a": "Incorrect. The actual symbols matter, not just the length.",
+        "b": "Incorrect. The entire string matters, not just the last symbol.",
+        "c": "Correct. The final state is determined by starting at the start state and following transitions for each symbol in the string according to the transition function.",
+        "d": "Incorrect. The number of accept states doesn't determine the final state reached."
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
     }
   ]
 }
